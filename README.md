@@ -81,3 +81,10 @@ Título
 - O sistema deve ser responsivo, funcionando bem em dispositivos móveis e desktops.
 - A navegação deve ser simples, com menus claros e acessíveis
 
+## Conclusão
+
+O Diário de Sonhos com Interpretação por IA oferece uma abordagem para o registro e análise de sonhos, permitindo uma experiência personalizada, ao mesmo tempo em que aproveita os avanços da inteligência artificial para fornecer interpretações adaptadas às necessidades individuais dos usuários.
+
+O projeto se destaca por permitir a personalização, com filtros para diferentes abordagens místicas e não místicas, o que torna o aplicativo acessível a uma ampla gama de pessoas com diferentes crenças e interesses.
+
+Com o potencial de expandir para áreas como autodescoberta e psicologia, ele oferece uma oportunidade única de explorar o significado dos sonhos de forma envolvente e prática.
