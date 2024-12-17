@@ -1,4 +1,4 @@
-# dreamDiary
+# Dream Diary - Diário dos sonhos
 
 ## Descrição Geral:
 
