@@ -4,6 +4,10 @@ Este projeto está sendo desenvolvido como parte da disciplina Desenvolvimento d
 
 **Documento parte 1:** https://s.craft.me/8VEj0Li375GrDm
 
+## Tecnologias (Não definidos ainda)
+- ...
+- ...
+
 ## Descrição Geral:
 
 O Diário de Sonhos é uma plataforma web projetada para permitir que os usuários
