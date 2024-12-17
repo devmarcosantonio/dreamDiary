@@ -2,7 +2,7 @@
 
 Este projeto está sendo desenvolvido como parte da disciplina **Desenvolvimento de Sistemas Web (DSW)**, ministrada pela **Profa. Dra. Alana Oliveira**, na **Universidade Federal do Maranhão (UFMA)**. O objetivo principal é aplicar os conhecimentos adquiridos em sala de aula no desenvolvimento de um sistema funcional, utilizando boas práticas de programação, usabilidade e tecnologias modernas para a criação de aplicações web.
 
-**Documento parte 1:** https://s.craft.me/8VEj0Li375GrDm
+**Documento Trabalho parte 1:** https://s.craft.me/8VEj0Li375GrDm
 
 ## Tecnologias (Não definidas ainda)
 - ...
