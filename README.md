@@ -1,6 +1,6 @@
 # Dream Diary - Diário dos sonhos
 
-## DIÁRIO DOS SONHOS COM INTERPRETAÇÃO POR IA
+**DIÁRIO DOS SONHOS COM INTERPRETAÇÃO POR IA**
 
 Este projeto está sendo desenvolvido como parte da disciplina **Desenvolvimento de Sistemas Web (DSW)**, ministrada pela **Profa. Dra. Alana Oliveira**, na **Universidade Federal do Maranhão (UFMA)**. O objetivo principal é aplicar os conhecimentos adquiridos em sala de aula no desenvolvimento de um sistema funcional, utilizando boas práticas de programação, usabilidade e tecnologias modernas para a criação de aplicações web.
 
