@@ -12,20 +12,20 @@ O sistema possui uma interface intuitiva, que facilita o registro de informaçõ
 título, descrição, emoções e categorias associadas a cada sonho.
 
 ## Público-Alvo:
-- Curiosos e Entusiastas de Sonhos: Pessoas que têm interesse em explorar o significado
+- **Curiosos e Entusiastas** de Sonhos: Pessoas que têm interesse em explorar o significado
 de seus sonhos e entender o simbolismo por trás deles.
 
-- Indivíduos em Busca de Autoconhecimento: Usuários que buscam entender melhor
+- **Indivíduos em Busca de Autoconhecimento:** Usuários que buscam entender melhor
 seus próprios padrões emocionais e psicológicos. O aplicativo pode ajudar a identificar
 questões subconscientes, como medos, desejos e padrões de comportamento,
 promovendo um processo de autodescoberta.
 
-- Amantes de Misticismo e Espiritualidade: Usuários que acreditam no poder simbólico
+- **Amantes de Misticismo e Espiritualidade:** Usuários que acreditam no poder simbólico
 dos sonhos e no seu potencial para oferecer insights sobre a vida, o futuro e o
 inconsciente. Eles podem se interessar especialmente pela interpretação dos sonhos de
 forma mística ou espiritual.
  
-- Pessoas com Distúrbios de Sono ou Pesadelos: Indivíduos que experimentam
+- **Pessoas com Distúrbios de Sono ou Pesadelos:** Indivíduos que experimentam
 pesadelos frequentes ou distúrbios do sono podem usar o aplicativo para monitorar e
 entender melhor seus sonhos, ajudando a reduzir a ansiedade e melhorar o bem-estar
 emocional.
