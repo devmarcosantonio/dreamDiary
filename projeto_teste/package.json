@@ -1,0 +1,16 @@
+{
+  "name": "projeto_ia_generativa",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "dev": "node src/index"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  }
+}
