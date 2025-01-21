@@ -26,6 +26,7 @@ app.post('/interprete', express.json(), async (req, res) => {
 app.listen(3000, (error) => {
     if (error) {
         console.log('erro')
+        console.log("aqui se kascohusbnd")
     } else {
         console.log('servidor rodando')
     }
