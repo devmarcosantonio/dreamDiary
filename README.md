@@ -15,11 +15,11 @@ Este projeto está sendo desenvolvido como parte da disciplina **Desenvolvimento
 ## Tecnologias (Não definidas ainda)
 - Django:
  ```bash
-   pip install django
+   pip install django```
 
 - API do Gemini Google
  ```bash
-   pip install -q -U google-generativeai
+   pip install -q -U google-generativeai```
 
 ## Descrição Geral:
 
