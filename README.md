@@ -13,8 +13,13 @@ Este projeto está sendo desenvolvido como parte da disciplina **Desenvolvimento
 - Marcos Antonio Branco Pereira Junior
 
 ## Tecnologias (Não definidas ainda)
-- ...
-- ...
+- Django:
+ ```bash
+   pip install django
+
+- API do Gemini Google
+ ```bash
+   pip install -q -U google-generativeai
 
 ## Descrição Geral:
 
