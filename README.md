@@ -12,7 +12,7 @@ Este projeto está sendo desenvolvido como parte da disciplina **Desenvolvimento
 - Davi Oliveira Cortes 
 - Marcos Antonio Branco Pereira Junior
 
-## Tecnologias (Não definidas ainda)
+## Tecnologias 
 - Django:
  ```bash
    pip install django
