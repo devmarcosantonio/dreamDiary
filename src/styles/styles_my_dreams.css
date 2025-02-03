@@ -1,0 +1,40 @@
+
+
+/* MAIN */
+
+main {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sonhos {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background-color: aquamarine;
+
+}
+
+.sonho {
+    width: 100%;
+    background-color: white;
+}
+
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 1100px) {
+
+}
+
+@media (max-width: 768px) {
+  
+}
+
+@media (max-width: 480px) {
+   
+}
