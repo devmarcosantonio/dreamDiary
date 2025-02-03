@@ -25,6 +25,8 @@ header {
     border-radius: 0 0 20px 20px;
     top: 0;
     transition: 1s;
+    font-size: 20px;
+    z-index: 999;
 }
 
 .hamburger {
@@ -115,6 +117,7 @@ footer {
         height: 100vh;
         background-color: white;
         transition: 0.5s;
+    
     }
 
     #navbar-menu.show ul {
