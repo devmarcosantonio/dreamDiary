@@ -7,20 +7,28 @@ main {
     min-height: 90vh;
     margin: auto;
     display: flex;
+    justify-content: start;
     flex-direction: column;
-    gap: 60px;
 
-    margin-bottom: 20px;
+    gap: 30px;
+}
+
+main h1 {
+    text-align: center;
+    color: white;
+    font-size: 40px;
 }
 
 .filtros {
     color: white;
+    gap: 5px
 }
 
 .filtros input {
-    padding: 10px;
+
     border: none;
     border-radius: 4px;
+    padding: 10px;
 
 }
 
@@ -81,14 +89,23 @@ main {
 /* RESPONSIVIDADE */
 
 @media (max-width: 1100px) {
+ 
+   .sonhos {
+        width: 90%;
+   }
+}
+
+@media (max-width: 900px) {
     main {
+        align-items: center;
         width: 90%;
       }
 
-   .sonhos {
-        width: 90%;
-        margin: auto;
-   }
+    .filtros {
+        align-self: flex-start;
+    }
+
+  
 }
 
 @media (max-width: 768px) {

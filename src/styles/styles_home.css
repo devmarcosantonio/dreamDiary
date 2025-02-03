@@ -10,15 +10,17 @@ main {
     margin: auto;
     max-width: 50%;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     height: 500px;
 }
 
 .main-section-01 > h1 {
     font-size: 100px;
-    width: 70%;
+    width: 400px;
+
     font-weight: 200;
     color: #edecf2;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .btn-novo-sonho {
@@ -27,6 +29,13 @@ main {
     background-color: transparent;
     color: #edecf2;
     font-weight: 1000;
+    transition: 1s;
+
+    &:hover {
+        background-color: #edecf2;
+        color: rgb(5, 126, 156);
+
+    }
 }
 
 .main-section-02 {
@@ -126,6 +135,17 @@ main {
 
 /* RESPONSIVIDADE */
 
+
+@media (max-width: 1350px) {
+
+  
+    .main-section-01 > h1 {
+        font-size: 90px;
+        width: 300px;
+    }
+}
+
+
 @media (max-width: 1100px) {
 
     .main-section-01 {
@@ -133,10 +153,17 @@ main {
         justify-content: center;
     }
 
-    .main-section-01 > h1{
-        font-size: 50px;
+    .main-section-01 > h1 {
+        font-size: 60px;
         text-align: center;
+        width: 300px;
+        font-weight: 200;
+        color: #edecf2;
+        font-family: Arial, Helvetica, sans-serif;
+        align-items: center;
+        
     }
+
 
     .container-main-section-02 {
         display: flex;
@@ -158,10 +185,6 @@ main {
 }
 
 @media (max-width: 768px) {
- 
-    .main-section-01 > h1 {
-        font-size: 35px;
-    }
     
     .container-main-section-02 {
         display: flex;
@@ -179,7 +202,8 @@ main {
 
 @media (max-width: 480px) {
     .main-section-01 > h1 {
-        font-size: 25px;
+      
+        width: 300px;
     }
     
     .btn-novo-sonho {
