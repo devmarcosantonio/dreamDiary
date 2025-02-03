@@ -52,7 +52,7 @@ main {
 .container-main-section-02 {
     display: flex; /* Definir grid corretamente */
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
     gap: 50px;
     max-width: 80%;
     padding: 10px;
@@ -110,14 +110,16 @@ main {
     list-style: none;
     margin: none;
     display: flex;
-    gap: 10px;
+    gap: 20px;
 }
 
 .sonho-card {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    background-color: white;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
     padding: 10px;
     border-radius: 5px;
     width: 200px;
@@ -126,10 +128,18 @@ main {
 }
 
 .sonho-card button {
-    background-color: rgb(5, 126, 156);
+    background-color: transparent;
+    border: 1px solid white;
     color: white;
     padding: 5px;
-    border: none;
+
+    transition: 1s;
+
+    &:hover {
+        background-color: #edecf2;
+        color: rgb(5, 126, 156);
+
+    }
 }
 
 

@@ -1,5 +1,4 @@
 
-
 /* MAIN */
 
 main {
@@ -41,13 +40,20 @@ main h1 {
 
 .sonho {
     width: 100%;
-    background-color: white;
+    background-color: transparent;
+    border: 3px solid white;
+    color: white;
     padding: 30px;
     position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;   
     border-radius: 10px ;
+
+    & > h2 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bolder;
+    }
 
 
     &::after {
@@ -79,10 +85,10 @@ main h1 {
 
 .btn-acao {
     padding: 5px;
-    background-color: rgb(5, 126, 156);
+    background-color: transparent;
 
     border-radius: 50%;
-    border: none;
+    border: 1px solid white;
 }
 
 
