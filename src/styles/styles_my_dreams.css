@@ -28,7 +28,27 @@ main h1 {
     border: none;
     border-radius: 4px;
     padding: 10px;
+    align-self: start;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
 
+}
+
+.btn-novo-sonho {
+    padding: 15px 30px;
+    width: 250px;
+    border: 2px solid #edecf2;
+    background-color: transparent;
+    color: #edecf2;
+    font-weight: 1000;
+    transition: 1s;
+
+    &:hover {
+        background-color: #edecf2;
+        color: rgb(5, 126, 156);
+
+    }
 }
 
 .sonhos {
