@@ -18,3 +18,9 @@ document.addEventListener("DOMContentLoaded", function () {
         navbarMenu.classList.toggle("show");
     });
 });
+
+const btn_form = document.getElementById('btn-form')
+
+btn_form.addEventListener('click', (e) => {
+    e.defaultPrevented();
+})

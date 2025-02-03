@@ -19,7 +19,7 @@ form {
     align-items: center;
 
     &::before {
-        content: "LOGIN";
+        content: "CADASTRO";
         position: absolute;
         top: -10px;
         left: -10px;
@@ -75,14 +75,13 @@ form {
     & > button > a {
         color: white;
         font-weight: bold;
-        transition: 0.5s;
         text-decoration: none;
+        transition: 0.5s;
     }
 
     & > button > a:hover {
         color: rgb(5, 126, 156);
         font-weight: bold;
-        transition: 0.5s;
     }
 
     & > p > a {
