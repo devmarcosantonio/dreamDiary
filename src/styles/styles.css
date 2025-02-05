@@ -125,13 +125,12 @@ footer {
         width: 100%;
      }
 
-    #navbar-menu.show li {
+    #navbar-menu.show li, #navbar-menu li {
        margin-bottom: 30px;
        border-bottom: 1px solid rgb(5, 126, 156);
        padding-bottom: 10px;
        width: 90%;
        text-align: start;
-       
     }
 
     #navbar-menu.show a{
