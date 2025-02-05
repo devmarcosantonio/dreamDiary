@@ -71,7 +71,7 @@ main h1 {
 .sonho {
     width: 100%;
     background-color: transparent;
-    box-shadow: 0px 0px 10px rgb(247, 247, 247);
+    border: 1px solid white;
     color: white;
     padding: 30px;
     position: relative;
@@ -83,6 +83,8 @@ main h1 {
     & > h2 {
         font-family: Arial, Helvetica, sans-serif;
         font-weight: bolder;
+        font-size: 20px;
+        text-decoration: underline;
     }
 
 
@@ -94,21 +96,23 @@ main h1 {
         padding: 10px;
         background-color: rgb(5, 126, 156);
         color: white;
+        border-radius: 10px 1px;
     }
 
     &::before {
         content: "alegria, medo, nostalgia";
         position: absolute;
-        right: 30px;
+        right: -30px;
         top: -20px;
         padding: 10px;
-        background-color: rgb(98, 98, 139);
-        color: white;
+        background-color: white;
+        color: rgb(5, 126, 156);
+        border-radius: 10px 1px;
     }
 }
 
 .acoes {
-    gap: 4px;
+    gap: 6px;
     display: flex;
     flex-direction: row;
 }
@@ -119,6 +123,12 @@ main h1 {
 
     border-radius: 50%;
     border: 1px solid white;
+    transition: 0.5s;
+}
+
+.btn-acao:hover {
+    padding: 5px;
+    background-color: white;
 }
 
 
