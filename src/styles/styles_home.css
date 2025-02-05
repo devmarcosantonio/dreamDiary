@@ -63,7 +63,7 @@ main {
 .container-main-section-02 {
     display: flex; /* Definir grid corretamente */
     justify-content: space-between;
-    align-items: start;
+    align-items: center;
     gap: 50px;
     max-width: 80%;
     padding: 10px;
@@ -111,11 +111,16 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .ultimos-sonhos h2 {
     color: white;
     margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .ultimos-sonhos ul {
@@ -125,6 +130,8 @@ main {
     margin: none;
     display: flex;
     gap: 20px;
+    align-items: center;
+    justify-content: center;
 }
 
 .sonho-card {
@@ -166,6 +173,27 @@ main {
     .main-section-01 > h1 {
         font-size: 90px;
         width: 300px;
+    }
+
+    .container-main-section-02 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       
+    }
+
+    .ultimos-sonhos {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+    }
+
+    .ultimos-sonhos ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
     }
 }
 
@@ -238,7 +266,7 @@ main {
     
     .container-main-section-02 {
         width: 100%;
-        gap: 10px;
+        gap: 50px;
     }
 
     .day {
