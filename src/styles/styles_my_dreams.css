@@ -12,6 +12,15 @@ main {
     gap: 30px;
 }
 
+a {
+    color: white;
+}
+
+a:visited {
+    color: white;
+}
+
+
 main h1 {
     text-align: center;
     color: white;
