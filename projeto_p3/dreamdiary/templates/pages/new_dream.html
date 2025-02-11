@@ -1,0 +1,113 @@
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'dreamdiary/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'dreamdiary/css/styles_new_dream.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Diary</title>
+</head>
+<body>
+    <section class="bg">
+        {% include 'partials/header.html' %}
+        
+        <main>
+           <h1>Salve seu sonho</h1>
+
+           <form class="form-novo-sonho">
+                <label>
+                    <span>Título do sonho</span>
+                    <input type="text">
+                </label>
+
+                <label>
+                    <span>Descrição do sonho</span>
+                    <textarea></textarea>
+                </label>
+
+                <div class="checkbox-emocoes">
+
+                    <h2>Emoções sentidas: </h2>
+                    <div class="emocoes-container">
+                        <div class="emocoes-boas">
+                        <label class="emocao emocao-boa">
+                            <span>Alegria</span>
+                            <input type="checkbox" name="alegria">
+                        </label>
+                        <label class="emocao emocao-boa">
+                            <span>Euforia</span>
+                            <input type="checkbox" name="alegria">
+                        </label>
+                        <label class="emocao emocao-boa">
+                            <span>Paz</span>
+                            <input type="checkbox" name="alegria">
+                        </label>
+                        <label class="emocao emocao-boa">
+                            <span>Paixão</span>
+                            <input type="checkbox" name="alegria">
+                        </label>
+                        <label class="emocao emocao-boa">
+                            <span>Surpresa</span>
+                            <input type="checkbox" name="alegria">
+                        </label>
+                        <label class="emocao emocao-boa">
+                            <span>Nostalgia</span>
+                            <input type="checkbox" name="alegria">
+                        </label>
+                        
+                    </div>
+
+                    <div class="emocoes-ruins">
+                        <label class="emocao emocao-ruim">
+                            <span>Vergonha</span>
+                            <input type="checkbox" name="alegria">
+                        </label>
+                        <label class="emocao emocao-ruim">
+                            <span>Confusão</span>
+                            <input type="checkbox" name="alegria">
+                        </label>
+                        <label class="emocao emocao-ruim">
+                            <span>Constrangimento</span>
+                            <input type="checkbox" name="alegria">
+                        </label>
+                        <label class="emocao emocao-ruim">
+                            <span>Tristeza</span>
+                            <input type="checkbox" name="alegria">
+                        </label>
+                        <label class="emocao emocao-ruim">
+                            <span>Medo</span>
+                            <input type="checkbox" name="alegria">
+                        </label>
+                        <label class="emocao emocao-ruim">
+                            <span>Ansiedade</span>
+                            <input type="checkbox" name="alegria">
+                        </label>
+                        <label class="emocao emocao-ruim">
+                            <span>Raiva</span>
+                            <input type="checkbox" name="alegria">
+                        </label>
+                        <label class="emocao emocao-ruim">
+                            <span>Frustação</span>
+                            <input type="checkbox" name="alegria">
+                        </label>
+                    </div>
+                </div>
+
+                    
+                </div>
+
+                <button class="btn-salvar-sonho">Salvar sonho</button>
+            </form>
+        </main>
+    </section>
+
+    {% include 'partials/footer.html' %}
+
+    <script src="../scripts/script.js"></script>
+    
+</body>
+</html>

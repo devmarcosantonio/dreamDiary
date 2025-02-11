@@ -1,1 +1,54 @@
 projeto_teste/node_modules
+
+# Arquivos de configuração locais
+*.env
+*.env.*
+*.local
+
+# Pasta de cache do Python
+__pycache__/
+*.py[cod]
+
+# Diretórios de dependências
+venv/
+env/
+.venv/
+.idea/
+.vscode/
+
+# Arquivos do banco de dados local
+db.sqlite3
+
+# Arquivos de log
+*.log
+
+# Diretório de migrações
+migrations/
+
+# Arquivos de media (geralmente gerados pelo usuário)
+media/
+
+# Arquivos de static (gerados pelo Django durante o build)
+static/
+
+# Arquivos temporários do editor
+*~
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Diretórios de build
+build/
+dist/
+
+# Arquivos de testes
+coverage/
+*.cover
+*.py,cover
+nosetests.xml
+coverage.xml
+*.hypothesis/
+
+# Arquivos de compilação de arquivos estáticos (ex.: css ou js)
+*.scssc

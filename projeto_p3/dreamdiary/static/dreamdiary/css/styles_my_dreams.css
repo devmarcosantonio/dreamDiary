@@ -1,0 +1,178 @@
+
+/* MAIN */
+
+main {
+    width: 50%;
+    min-height: 90vh;
+    margin: auto;
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+
+    gap: 30px;
+}
+
+a {
+    color: white;
+}
+
+a:visited {
+    color: white;
+}
+
+
+main h1 {
+    text-align: center;
+    color: white;
+    font-size: 40px;
+}
+
+.filtros {
+    color: white;
+    gap: 5px
+}
+
+.filtros input {
+
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    align-self: start;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+
+}
+
+.btn-novo-sonho {
+    padding: 10px 15px;
+    width: 180px;
+    border: 2px solid #edecf2;
+    background-color: transparent;
+    color: #edecf2;
+    font-weight: 1000;
+    transition: 1s;
+
+    &:hover {
+        background-color: #edecf2;
+      
+    }
+
+    & > a {
+        text-decoration: none;
+        color: white;
+    }
+
+    & > a:hover {
+        text-decoration: none;
+        color: white;
+        color: rgb(5, 126, 156);
+    }
+}
+
+.sonhos {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.sonho {
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 30px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;   
+    border-radius: 10px ;
+
+    & > h2 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bolder;
+        font-size: 20px;
+        text-decoration: underline;
+    }
+
+
+    &::after {
+        content: "01/01/2024";
+        position: absolute;
+        left: -20px;
+        top: -20px;
+        padding: 10px;
+        background-color: rgb(5, 126, 156);
+        color: white;
+        border-radius: 10px 1px;
+    }
+
+    &::before {
+        content: "alegria, medo, nostalgia";
+        position: absolute;
+        right: -30px;
+        top: -20px;
+        padding: 10px;
+        background-color: white;
+        color: rgb(5, 126, 156);
+        border-radius: 10px 1px;
+    }
+}
+
+.acoes {
+    gap: 6px;
+    display: flex;
+    flex-direction: row;
+}
+
+.btn-acao {
+    padding: 5px;
+    background-color: transparent;
+
+    border-radius: 50%;
+    border: 1px solid white;
+    transition: 0.5s;
+}
+
+.btn-acao:hover {
+    padding: 5px;
+    background-color: white;
+}
+
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 1100px) {
+ 
+   .sonhos {
+        width: 90%;
+   }
+}
+
+@media (max-width: 900px) {
+    main {
+        align-items: center;
+        width: 90%;
+      }
+
+    .filtros {
+        align-self: flex-start;
+    }
+
+  
+}
+
+@media (max-width: 768px) {
+
+    .acoes {
+        gap: 4px;
+        display: flex;
+        flex-direction: column;
+    }
+  
+}
+
+@media (max-width: 480px) {
+   
+}

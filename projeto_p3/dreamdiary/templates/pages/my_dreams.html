@@ -1,0 +1,62 @@
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'dreamdiary/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'dreamdiary/css/styles_my_dreams.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Diary</title>
+</head>
+<body>
+    <section class="bg">
+        {% include 'partials/header.html' %}
+    
+        <main>
+            <section class="filtros">
+                <h2>Filtros</h2>
+                <input type="date">
+            </section>
+
+            <h1>Meus sonhos</h1>
+            <button class="btn-novo-sonho"><a href="{% url 'novo_sonho' %}">Adicionar um sonho</a></button>
+
+            <ul class="sonhos">
+                <li class="sonho">
+                    <h2><a href="{% url 'sonho' %}">Davi se tornou um bom progrador</a></h2>
+                    <div class="acoes">
+                        <button class="btn-acao"><a href="{% url 'sonho' %}"><img src="../imgs/seta-para-a-direita (1).png"></a></button>
+                        <button class="btn-acao"><img src="../imgs/lixeira (1).png"></button>
+                    </div>
+                </li>
+                <li class="sonho">
+                    <h2><a href="{% url 'sonho' %}">Ganhei na mega sena</a></h2>
+                    <div class="acoes">
+                        <button class="btn-acao"><a href="{% url 'sonho' %}"><img src="../imgs/seta-para-a-direita (1).png"></a></button>
+                        <button class="btn-acao"><img src="../imgs/lixeira (1).png"></button>
+                    </div>
+                </li>
+                <li class="sonho">
+                    <h2><a href="{% url 'sonho' %}">Um gato falou comigo</a></h2>
+                    <div class="acoes">
+                        <button class="btn-acao"><a href="{% url 'sonho' %}"><img src="../imgs/seta-para-a-direita (1).png"></a></button>
+                        <button class="btn-acao"><img src="../imgs/lixeira (1).png"></button>
+                    </div>
+                </li>
+            </ul>
+
+            
+            
+          
+        </main>
+    </section>
+
+    {% include 'partials/footer.html' %}
+
+    <script src="../scripts/script.js"></script>
+    
+</body>
+</html>

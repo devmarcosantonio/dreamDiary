@@ -1,0 +1,46 @@
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'dreamdiary/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'dreamdiary/css/styles_about.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Diary - Sobre</title>
+</head>
+<body>
+    <section class="bg">
+        {% include 'partials/header.html' %}
+
+        <main>
+            <h1>Sobre o Dream Diary</h1>
+            <p>O Dream Diary é um diário digital para registrar seus sonhos e interpretá-los com a ajuda da inteligência artificial. 
+               Nosso objetivo é proporcionar uma experiência intuitiva para que você possa guardar e entender melhor o significado dos seus sonhos.</p>
+
+            <p>Com uma interface simples e funcional, você pode adicionar descrições detalhadas, pesquisar sonhos antigos e obter interpretações personalizadas 
+               com base em padrões psicológicos e culturais.</p>
+
+            <h2>Sobre os Desenvolvedores</h2>
+            <div class="developers">
+                <div class="developer">
+                    <img src="{% static 'dreamdiary/imgs/marcos.png' %}" alt="Marcos Antonio">
+                    <h3>Marcos Antonio</h3>
+                    <p>Desenvolvedor Full Stack apaixonado por inovação e novas tecnologias.</p>
+                </div>
+                <div class="developer">
+                    <img src="{% static 'dreamdiary/imgs/davi.png' %}" alt="Davi Cortes">
+                    <h3>Davi Cortes</h3>
+                    <p>Especialista em desenvolmento back-end e o pior jogador de Call Of Duty Mobile.</p>
+                </div>
+            </div>
+        </main>
+    </section>
+
+    {% include 'partials/footer.html' %}
+
+    <script src="../scripts/script.js"></script>
+</body>
+</html>
