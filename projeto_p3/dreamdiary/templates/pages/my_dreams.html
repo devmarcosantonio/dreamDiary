@@ -5,11 +5,22 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'dreamdiary/css/styles.css' %}">
     <link rel="stylesheet" href="{% static 'dreamdiary/css/styles_my_dreams.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dream Diary</title>
+
+    <style>
+        .bg {
+            background-image: url("{% static 'dreamdiary/imgs/background.jpg' %}");
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
 </head>
 <body>
     <section class="bg">
