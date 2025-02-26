@@ -37,7 +37,7 @@
                 {% for sonho in sonhos %}
                     <li class="sonho">
                         <span class="before">{{ sonho.date|date:"d/m/Y" }}</span>
-                        <h2><a href="{% url 'sonho' %}">{{ sonho.title }}</a></h2>
+                        <h2><a href="{% url 'sonho' sonho.id %}">{{ sonho.title }}</a></h2> 
                         <div class="acoes">
                             <button class="btn-acao">
                                 <img src="{% static 'dreamdiary/imgs/lixeira.png' %}">

@@ -1,8 +1,11 @@
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login as auth_login
 from dreamdiary.models import User, Dream, Emotion, DreamEmotion
 from django.contrib import messages
+
+
+
 
 
 def login_view(request):
@@ -49,8 +52,18 @@ def myDreams(request):
 
     return render(request, "pages/my_dreams.html", {"sonhos": sonhos})
 
-def dream (request):
-    return render(request, 'pages/dream.html')
+def dream(request, id):
+    # Busca o sonho pelo ID ou retorna 404 se não encontrado
+    sonho = get_object_or_404(Dream, id=id)
+
+    # Exibe o sonho e as emoções associadas a ele
+    print("Sonho:", sonho.title)
+    print("Emoções associadas ao sonho:")
+    for dream_emotion in sonho.dream_emotions.all():
+        print(f"Categoria: {dream_emotion.emotion.category}, Nome: {dream_emotion.emotion.name}")
+
+    # Passa o sonho para o template
+    return render(request, 'pages/dream.html', {'sonho': sonho})
 
 def newDream(request):
     emotions = Emotion.objects.all().order_by('category')  # Pega todas as emoções do banco ordenadas por categoria

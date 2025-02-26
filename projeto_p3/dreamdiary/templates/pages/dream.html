@@ -1,7 +1,5 @@
 {% load static %}
 
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -26,19 +24,22 @@
     <section class="bg">
         {% include 'partials/header.html' %}
         
-    
         <main>
 
-            <h1>Título do sonho</h1>
-            
+            <h1>{{ sonho.title }}</h1>
+
             <ul class="emocoes">
-                <li class="emocao-boa">Paixão</li>
-                <li class="emocao-boa">Nostalgia</li>
-                <li class="emocao-ruim">Medo</li>
+                {% for dream_emotion in sonho.dream_emotions.all %}
+                    <!-- Usando a categoria da emoção para definir a classe -->
+                    <li class="{{ dream_emotion.emotion.category|lower }}">
+                        {{ dream_emotion.emotion.name }}
+                    </li>
+                {% empty %}
+                    <li>Sem emoções registradas</li>
+                {% endfor %}
             </ul>
 
-            <p class="descricao-sonho">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, minus quod, illum deserunt ad ex deleniti iste rem et harum vel veritatis repellat ea doloribus quasi modi assumenda similique mollitia.</p>
-
+            <p class="descricao-sonho">{{ sonho.description }}</p>
 
             <section class="section-interpretacao">
                 <h2>Interpretação</h2>
@@ -51,19 +52,13 @@
                         <input type="radio" name="modo" value="formal">
                         Formal 📜
                     </label>
-                    
                 </div>
                 <button>Gerar Interpretação</button>
             </section>
-            
-            
-          
+
         </main>
     </section>
 
     {% include 'partials/footer.html' %}
-
-
-    
 </body>
 </html>
