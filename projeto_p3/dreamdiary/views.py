@@ -43,8 +43,9 @@ def cadastro(request):
 def home (request):
     return render(request, 'pages/home.html')
 
-def myDreams (request):
-    return render(request, 'pages/my_dreams.html')
+def myDreams(request):
+    sonhos = Dream.objects.filter(user=request.user)  # Busca os sonhos do usuário logado
+    return render(request, "pages/my_dreams.html", {"sonhos": sonhos})
 
 def dream (request):
     return render(request, 'pages/dream.html')
