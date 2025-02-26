@@ -132,8 +132,5 @@ def deleteDream(request, id):
     # Verifica se o usuário logado é o dono do sonho
     if sonho.user == request.user:
         sonho.delete()  # Exclui o sonho
-        messages.success(request, "Sonho excluído com sucesso!")  # Exibe uma mensagem de sucesso
-    else:
-        messages.error(request, "Você não tem permissão para excluir este sonho.")  # Exibe uma mensagem de erro
-
+      
     return redirect('meus_sonhos')  # Redireciona de volta para a lista de sonhos
