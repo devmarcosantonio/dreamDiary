@@ -5,6 +5,37 @@ from dreamdiary.models import User, Dream, Emotion, DreamEmotion
 from django.contrib import messages
 
 
+from dreamdiary.models import Emotion
+
+def populate_emotions():
+    # Lista de emoções boas e ruins com as categorias ajustadas
+    emotions_data = [
+        {"category": "emocao-boa", "name": "Alegria"},
+        {"category": "emocao-boa", "name": "Euforia"},
+        {"category": "emocao-boa", "name": "Paz"},
+        {"category": "emocao-boa", "name": "Paixão"},
+        {"category": "emocao-boa", "name": "Surpresa"},
+        {"category": "emocao-boa", "name": "Nostalgia"},
+        {"category": "emocao-ruim", "name": "Vergonha"},
+        {"category": "emocao-ruim", "name": "Confusão"},
+        {"category": "emocao-ruim", "name": "Constrangimento"},
+        {"category": "emocao-ruim", "name": "Tristeza"},
+        {"category": "emocao-ruim", "name": "Medo"},
+        {"category": "emocao-ruim", "name": "Ansiedade"},
+        {"category": "emocao-ruim", "name": "Raiva"},
+        {"category": "emocao-ruim", "name": "Frustração"},
+    ]
+
+    # Loop para criar as emoções no banco de dados
+    for emotion in emotions_data:
+        Emotion.objects.get_or_create(category=emotion["category"], name=emotion["name"])
+
+    print("Emoções populadas com sucesso!")
+
+# Chame a função para popular o banco de dados
+populate_emotions()
+
+
 
 
 
