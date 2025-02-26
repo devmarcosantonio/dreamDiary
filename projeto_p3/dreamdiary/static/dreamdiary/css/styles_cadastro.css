@@ -98,6 +98,48 @@ form {
  
 }
 
+
+/* Estilizando as mensagens */
+.message {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Mensagem de erro */
+.message.error {
+    background-color: #ffcccc;  /* Fundo vermelho claro */
+    color: #cc0000;  /* Texto vermelho escuro */
+    border: 1px solid #cc0000;
+}
+
+/* Mensagem de sucesso */
+.message.success {
+    background-color: #ccffcc;  /* Fundo verde claro */
+    color: #008000;  /* Texto verde escuro */
+    border: 1px solid #008000;
+}
+
+/* Mensagem de aviso */
+.message.warning {
+    background-color: #fff3cd;  /* Fundo amarelo claro */
+    color: #856404;  /* Texto amarelo escuro */
+    border: 1px solid #856404;
+}
+
+/* Mensagem de informação */
+.message.info {
+    background-color: #cce5ff;  /* Fundo azul claro */
+    color: #004085;  /* Texto azul escuro */
+    border: 1px solid #004085;
+}
+
+
+
+
 /* RESPONSIVIDADE */
 
 @media (max-width: 1100px) {

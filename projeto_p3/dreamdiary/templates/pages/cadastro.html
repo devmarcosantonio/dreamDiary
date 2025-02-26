@@ -27,7 +27,11 @@
         <section class="container">
             <form method="POST">
                 {% csrf_token %}
-                
+                {% if messages %}
+                    {% for message in messages %}
+                        <p class="message {{ message.tags }}">{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
                 <label>
                     <span>Usuário</span>
                     <input type="text" name="username" required>
@@ -42,22 +46,19 @@
                     <span>Senha</span>
                     <input type="password" name="password" required>
                 </label>
-
+            
                 <button type="submit">Cadastrar</button>
-
+            
                 <p>Já tem uma conta? <a href="{% url 'login' %}">Faça login</a></p>
+                
             </form>
             
+
             
-            
-            {% if messages %}
-                <ul>
-                    {% for message in messages %}
-                        <li>{{ message }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-            
+
+
+      
+
 
         </section>
     

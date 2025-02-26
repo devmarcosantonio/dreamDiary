@@ -25,6 +25,12 @@
         <section class="container">
             <form method="POST">
                 {% csrf_token %}  <!-- Proteção contra ataques CSRF -->
+
+                {% if messages %}
+                    {% for message in messages %}
+                        <p class="message {{ message.tags }}">{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
                 
                 <label>
                     <span>Usuário</span>
@@ -40,15 +46,7 @@
 
                 <p>Não tem uma conta? <a href="{% url 'cadastro' %}">Crie aqui</a></p>
             </form>
-
-            <!-- Exibir mensagem de erro caso o login falhe -->
-            {% if messages %}
-                <ul class="messages">
-                    {% for message in messages %}
-                        <li class="{{ message.tags }}">{{ message }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
+     
         </section>
     </section>
 

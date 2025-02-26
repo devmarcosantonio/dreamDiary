@@ -12,5 +12,6 @@ urlpatterns = [
     path('sonho/', dream, name='sonho'),
     path('meus_sonhos/', myDreams, name='meus_sonhos'),
     path('novo_sonho/', newDream, name='novo_sonho'),
+    
 ]
 
