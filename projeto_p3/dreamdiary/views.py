@@ -44,7 +44,9 @@ def home (request):
     return render(request, 'pages/home.html')
 
 def myDreams(request):
-    sonhos = Dream.objects.filter(user=request.user)  # Busca os sonhos do usuário logado
+    # Busca os sonhos do usuário logado, incluindo emoções associadas
+    sonhos = Dream.objects.filter(user=request.user).prefetch_related("dream_emotions__emotion")
+
     return render(request, "pages/my_dreams.html", {"sonhos": sonhos})
 
 def dream (request):
@@ -53,6 +55,36 @@ def dream (request):
 def newDream(request):
     emotions = Emotion.objects.all().order_by('category')  # Pega todas as emoções do banco ordenadas por categoria
     return render(request, "pages/new_dream.html", {"emotions": emotions})
+
+def newDream(request):
+    if request.method == 'POST':
+        # Captura os dados do formulário
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        emotions = request.POST.getlist('emotions')
+
+        # Cria o novo sonho e salva
+        dream = Dream.objects.create(
+            user=request.user,
+            title=title,
+            description=description
+        )
+
+        # Associa as emoções ao sonho
+        for emotion_id in emotions:
+            try:
+                emotion = Emotion.objects.get(id=emotion_id)
+                DreamEmotion.objects.create(dream=dream, emotion=emotion)
+            except Emotion.DoesNotExist:
+                continue  # Caso a emoção não exista, ignoramos
+
+        # Redireciona para a página de "Meus Sonhos"
+        return redirect('meus_sonhos')
+
+    else:
+        # Se o método não for POST, apenas mostra o formulário vazio
+        emotions = Emotion.objects.all()
+        return render(request, 'pages/new_dream.html', {'emotions': emotions})
 
 def about (request):
     return render(request, 'pages/about.html')

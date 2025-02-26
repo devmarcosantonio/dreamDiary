@@ -1,11 +1,8 @@
 {% load static %}
 
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'dreamdiary/css/styles.css' %}">
     <link rel="stylesheet" href="{% static 'dreamdiary/css/styles_my_dreams.css' %}">
@@ -37,38 +34,30 @@
             <button class="btn-novo-sonho"><a href="{% url 'novo_sonho' %}">Adicionar um sonho</a></button>
 
             <ul class="sonhos">
-                <li class="sonho">
-                    <span class="before">01/01/2024</span>
-                    <h2><a href="{% url 'sonho' %}">Davi se tornou um bom progrador</a></h2>
-                    <div class="acoes">
-                        <button class="btn-acao"><img src="{% static 'dreamdiary/imgs/lixeira.png' %}"></button>
-                    </div>
-                    <ul class = "after">
-                        <li>alegria</li>
-                        <li>medo</li>
-                        <li>nostalgia</li>
-                    </ul>
-                </li>
-
-                <li class="sonho">
-                    <span class="before">01/01/2024</span>
-                    <h2><a href="{% url 'sonho' %}">Davi se tornou um bom progrador</a></h2>
-                    <div class="acoes">
-                        <button class="btn-acao"><img src="{% static 'dreamdiary/imgs/lixeira.png' %}"></button>
-                    </div>
-                    <ul class = "after">
-                        <li>alegria</li>
-                        <li>medo</li>
-                        <li>nostalgia</li>
-                    </ul>
-                </li>
+                {% for sonho in sonhos %}
+                    <li class="sonho">
+                        <span class="before">{{ sonho.date|date:"d/m/Y" }}</span>
+                        <h2><a href="{% url 'sonho' %}">{{ sonho.title }}</a></h2>
+                        <div class="acoes">
+                            <button class="btn-acao">
+                                <img src="{% static 'dreamdiary/imgs/lixeira.png' %}">
+                            </button>
+                        </div>
+                        <ul class="after">
+                            {% for dream_emotion in sonho.dream_emotions.all %}
+                                <li>{{ dream_emotion.emotion.name }}</li>
+                            {% empty %}
+                                <li>Sem emoções registradas</li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% empty %}
+                    <p class="mensagem-sem-sonho">Você ainda não adicionou sonhos.</p>
+                {% endfor %}
             </ul>
         </main>
     </section>
 
     {% include 'partials/footer.html' %}
-
-
-    
 </body>
 </html>

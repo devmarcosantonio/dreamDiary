@@ -150,6 +150,12 @@ main h1 {
     background-color: white;
 }
 
+.mensagem-sem-sonho {
+    color: white;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
 
 /* RESPONSIVIDADE */
 

@@ -1,7 +1,5 @@
 {% load static %}
 
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -29,15 +27,17 @@
         <main>
            <h1>Salve seu sonho</h1>
 
-           <form class="form-novo-sonho">
+           <form class="form-novo-sonho" method="POST">
+                {% csrf_token %}
+                
                 <label>
                     <span>Título do sonho</span>
-                    <input type="text">
+                    <input type="text" name="title" required>
                 </label>
 
                 <label>
                     <span>Descrição do sonho</span>
-                    <textarea></textarea>
+                    <textarea name="description" required></textarea>
                 </label>
 
                 <div class="checkbox-emocoes">
@@ -68,19 +68,12 @@
                         
                     </div>
                 </div>
-                
 
-                    
-                </div>
-
-                <button class="btn-salvar-sonho">Salvar sonho</button>
+                <button class="btn-salvar-sonho" type="submit">Salvar sonho</button>
             </form>
         </main>
     </section>
 
     {% include 'partials/footer.html' %}
-
-
-    
 </body>
 </html>
