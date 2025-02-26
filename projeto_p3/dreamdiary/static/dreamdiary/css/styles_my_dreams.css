@@ -97,8 +97,7 @@ main h1 {
     }
 
 
-    &::after {
-        content: "01/01/2024";
+    & > span.before {
         position: absolute;
         left: -20px;
         top: -20px;
@@ -108,8 +107,7 @@ main h1 {
         border-radius: 10px 1px;
     }
 
-    &::before {
-        content: "alegria, medo, nostalgia";
+    & > ul.after {
         position: absolute;
         right: -30px;
         top: -20px;
@@ -117,6 +115,18 @@ main h1 {
         background-color: white;
         color: rgb(5, 126, 156);
         border-radius: 10px 1px;
+        gap: 3px;
+
+        list-style: none;
+        display: flex;
+    }
+
+    & > ul.after > li::after {
+        content: ",";
+    }
+
+    & > ul.after > li:last-child::after {
+        content: ".";
     }
 }
 
