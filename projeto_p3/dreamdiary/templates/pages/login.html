@@ -1,7 +1,5 @@
 {% load static %}
 
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -25,23 +23,35 @@
 <body>
     <section class="bg">
         <section class="container">
-            <form>
+            <form method="POST">
+                {% csrf_token %}  <!-- Proteção contra ataques CSRF -->
+                
                 <label>
                     <span>Usuário</span>
-                    <input type="text">
+                    <input type="text" name="username" required>
                 </label>
                 
                 <label>
-                    <span>Segredo</span>
-                    <input type="password" name="password" id="password">
+                    <span>Senha</span>
+                    <input type="password" name="password" required>
                 </label>
-                
-                <button id="btn_form"><a href="{% url 'home' %}">LOGIN</a></button>
-                <p>Não tem uma conta? <a href="{% url 'cadastro' %}">crie aqui</a></p>
+
+                <button type="submit">LOGIN</button>
+
+                <p>Não tem uma conta? <a href="{% url 'cadastro' %}">Crie aqui</a></p>
             </form>
+
+            <!-- Exibir mensagem de erro caso o login falhe -->
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li class="{{ message.tags }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
         </section>
     </section>
 
-    <script src="../scripts/script.js"></script>
+    <script src="{% static 'dreamdiary/scripts/script.js' %}"></script>
 </body>
 </html>

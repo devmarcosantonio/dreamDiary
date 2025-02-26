@@ -1,12 +1,24 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login as auth_login
 from dreamdiary.models import User
 from django.contrib import messages
 
-# Create your views here.
 
-def login (request):
-    return render(request, 'pages/login.html')
+def login_view(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            auth_login(request, user)  # Usa 'auth_login' para evitar conflito
+            return redirect("home")  # Redireciona para a página inicial após login
+        else:
+            messages.error(request, "Usuário ou senha inválidos.")  # Exibe erro se as credenciais forem inválidas
+
+    return render(request, "pages/login.html")
 
 def cadastro(request):
     if request.method == "POST":
