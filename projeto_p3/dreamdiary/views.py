@@ -4,9 +4,6 @@ from django.contrib.auth import authenticate, login as auth_login
 from dreamdiary.models import User, Dream, Emotion, DreamEmotion
 from django.contrib import messages
 
-
-from dreamdiary.models import Emotion
-
 def populate_emotions():
     emotions_data = [
         {"category": "emocao-boa", "name": "Alegria"},
