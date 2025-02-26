@@ -39,9 +39,13 @@
                         <span class="before">{{ sonho.date|date:"d/m/Y" }}</span>
                         <h2><a href="{% url 'sonho' sonho.id %}">{{ sonho.title }}</a></h2> 
                         <div class="acoes">
-                            <button class="btn-acao">
-                                <img src="{% static 'dreamdiary/imgs/lixeira.png' %}">
-                            </button>
+                            <!-- Formulário de exclusão com método POST -->
+                            <form action="{% url 'excluir_sonho' sonho.id %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn-acao">
+                                    <img src="{% static 'dreamdiary/imgs/lixeira.png' %}" alt="Excluir">
+                                </button>
+                            </form>
                         </div>
                         <ul class="after">
                             {% for dream_emotion in sonho.dream_emotions.all %}
@@ -55,6 +59,7 @@
                     <p class="mensagem-sem-sonho">Você ainda não adicionou sonhos.</p>
                 {% endfor %}
             </ul>
+            
         </main>
     </section>
 

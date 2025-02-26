@@ -101,6 +101,7 @@ def newDream(request):
 
 def about (request):
     return render(request, 'pages/about.html')
+    
 
 
 # CRUD SONHOS
@@ -122,3 +123,17 @@ def saveDream(request):
         return redirect("meus_sonhos")  # Redireciona para a página de sonhos do usuário
 
     return render(request, "pages/new_dream.html")
+
+
+def deleteDream(request, id):
+    # Busca o sonho pelo ID ou retorna 404 se não encontrado
+    sonho = get_object_or_404(Dream, id=id)
+
+    # Verifica se o usuário logado é o dono do sonho
+    if sonho.user == request.user:
+        sonho.delete()  # Exclui o sonho
+        messages.success(request, "Sonho excluído com sucesso!")  # Exibe uma mensagem de sucesso
+    else:
+        messages.error(request, "Você não tem permissão para excluir este sonho.")  # Exibe uma mensagem de erro
+
+    return redirect('meus_sonhos')  # Redireciona de volta para a lista de sonhos

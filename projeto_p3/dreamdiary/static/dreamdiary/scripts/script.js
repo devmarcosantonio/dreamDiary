@@ -19,8 +19,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-const btn_form = document.getElementById('btn-form')
-
-btn_form.addEventListener('click', (e) => {
-    e.defaultPrevented();
-})
