@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as auth_login
-from dreamdiary.models import User, Emotion
+from dreamdiary.models import User, Dream, Emotion, DreamEmotion
 from django.contrib import messages
 
 
@@ -55,3 +55,24 @@ def newDream(request):
 
 def about (request):
     return render(request, 'pages/about.html')
+
+
+# CRUD SONHOS
+
+def saveDream(request):
+    if request.method == "POST":
+        title = request.POST.get("title")
+        description = request.POST.get("description")
+        emotions_ids = request.POST.getlist("emotions")  # Lista de IDs das emoções selecionadas
+        user = request.user  # Usuário logado
+
+        dream = Dream.objects.create(user=user, title=title, description=description)
+
+        # Associar emoções ao sonho
+        for emotion_id in emotions_ids:
+            emotion = Emotion.objects.get(id=emotion_id)
+            DreamEmotion.objects.create(dream=dream, emotion=emotion)
+
+        return redirect("meus_sonhos")  # Redireciona para a página de sonhos do usuário
+
+    return render(request, "pages/new_dream.html")
