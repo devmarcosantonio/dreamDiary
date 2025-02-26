@@ -40,72 +40,34 @@
                 </label>
 
                 <div class="checkbox-emocoes">
-
                     <h2>Emoções sentidas: </h2>
                     <div class="emocoes-container">
+                        
                         <div class="emocoes-boas">
-                        <label class="emocao emocao-boa">
-                            <span>Alegria</span>
-                            <input type="checkbox" name="alegria">
-                        </label>
-                        <label class="emocao emocao-boa">
-                            <span>Euforia</span>
-                            <input type="checkbox" name="alegria">
-                        </label>
-                        <label class="emocao emocao-boa">
-                            <span>Paz</span>
-                            <input type="checkbox" name="alegria">
-                        </label>
-                        <label class="emocao emocao-boa">
-                            <span>Paixão</span>
-                            <input type="checkbox" name="alegria">
-                        </label>
-                        <label class="emocao emocao-boa">
-                            <span>Surpresa</span>
-                            <input type="checkbox" name="alegria">
-                        </label>
-                        <label class="emocao emocao-boa">
-                            <span>Nostalgia</span>
-                            <input type="checkbox" name="alegria">
-                        </label>
+                            {% for emotion in emotions %}
+                                {% if "boa" in emotion.category %}
+                                    <label class="emocao emocao-boa">
+                                        <span>{{ emotion.name }}</span>
+                                        <input type="checkbox" name="emotions" value="{{ emotion.id }}">
+                                    </label>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                
+                        <div class="emocoes-ruins">
+                            {% for emotion in emotions %}
+                                {% if "ruim" in emotion.category %}
+                                    <label class="emocao emocao-ruim">
+                                        <span>{{ emotion.name }}</span>
+                                        <input type="checkbox" name="emotions" value="{{ emotion.id }}">
+                                    </label>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
                         
                     </div>
-
-                    <div class="emocoes-ruins">
-                        <label class="emocao emocao-ruim">
-                            <span>Vergonha</span>
-                            <input type="checkbox" name="alegria">
-                        </label>
-                        <label class="emocao emocao-ruim">
-                            <span>Confusão</span>
-                            <input type="checkbox" name="alegria">
-                        </label>
-                        <label class="emocao emocao-ruim">
-                            <span>Constrangimento</span>
-                            <input type="checkbox" name="alegria">
-                        </label>
-                        <label class="emocao emocao-ruim">
-                            <span>Tristeza</span>
-                            <input type="checkbox" name="alegria">
-                        </label>
-                        <label class="emocao emocao-ruim">
-                            <span>Medo</span>
-                            <input type="checkbox" name="alegria">
-                        </label>
-                        <label class="emocao emocao-ruim">
-                            <span>Ansiedade</span>
-                            <input type="checkbox" name="alegria">
-                        </label>
-                        <label class="emocao emocao-ruim">
-                            <span>Raiva</span>
-                            <input type="checkbox" name="alegria">
-                        </label>
-                        <label class="emocao emocao-ruim">
-                            <span>Frustação</span>
-                            <input type="checkbox" name="alegria">
-                        </label>
-                    </div>
                 </div>
+                
 
                     
                 </div>

@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as auth_login
-from dreamdiary.models import User
+from dreamdiary.models import User, Emotion
 from django.contrib import messages
 
 
@@ -49,8 +49,9 @@ def myDreams (request):
 def dream (request):
     return render(request, 'pages/dream.html')
 
-def newDream (request):
-    return render(request, 'pages/new_dream.html')
+def newDream(request):
+    emotions = Emotion.objects.all().order_by('category')  # Pega todas as emoções do banco ordenadas por categoria
+    return render(request, "pages/new_dream.html", {"emotions": emotions})
 
 def about (request):
     return render(request, 'pages/about.html')
