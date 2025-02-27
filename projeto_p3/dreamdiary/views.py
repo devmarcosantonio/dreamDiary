@@ -41,8 +41,11 @@ def cadastro(request):
 
     return render(request, "pages/cadastro.html")
 
-def home (request):
-    return render(request, 'pages/home.html')
+def home(request):
+    # Buscar os 5 últimos sonhos cadastrados, ordenados pela data de criação
+    ultimos_sonhos = Dream.objects.filter(user=request.user).order_by("-date")[:5]
+
+    return render(request, "pages/home.html", {"ultimos_sonhos": ultimos_sonhos})
 
 def myDreams(request):
     # Captura a data enviada pelo usuário (se existir)
