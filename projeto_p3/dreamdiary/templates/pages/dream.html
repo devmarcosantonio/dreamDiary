@@ -41,24 +41,56 @@
 
             <p class="descricao-sonho">{{ sonho.description }}</p>
 
-            <section class="section-interpretacao">
-                <h2>Interpretação</h2>
-                <div class="radio-container">
-                    <label class="radio-label">
-                        <input type="radio" name="modo" value="mitico">
-                        Mítico 🔮
-                    </label>
-                    <label class="radio-label">
-                        <input type="radio" name="modo" value="formal">
-                        Formal 📜
-                    </label>
-                </div>
-                <button>Gerar Interpretação</button>
-            </section>
+            
 
-        </main>
+        <section class="section-interpretacao">
+            <h2>Interpretação</h2>
+            <div class="radio-container">
+                <label class="radio-label">
+                    <input type="radio" name="modo" value="mitico">
+                    Mítico 🔮
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="modo" value="formal" checked>
+                    Formal 📜
+                </label>
+            </div>
+            <button id="interpretar-btn" data-sonho-id="{{ sonho.id }}">Gerar Interpretação</button>
+
+            <p id="interpretacao-texto">{{ sonho.interpretation|default:"Sem interpretação gerada!" }}</p>
+        </section>
+
     </section>
 
     {% include 'partials/footer.html' %}
+
+    <script>
+        document.getElementById("interpretar-btn").addEventListener("click", function() {
+            const sonhoId = this.getAttribute("data-sonho-id");
+            const modo = document.querySelector('input[name="modo"]:checked').value;
+            const interpretacaoTexto = document.getElementById("interpretacao-texto");
+
+            fetch(`/interpretar_sonho/${sonhoId}/`, {
+                method: "POST",
+                headers: { "X-CSRFToken": "{{ csrf_token }}", "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams({ modo: modo })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.interpretation) {
+                    interpretacaoTexto.innerText = data.interpretation;
+                } else {
+                    interpretacaoTexto.innerText = "Erro ao gerar interpretação.";
+                }
+            })
+            .catch(error => {
+                console.error("Erro:", error);
+                interpretacaoTexto.innerText = "Erro na solicitação.";
+            });
+        });
+    </script>
+
+
+   
 </body>
 </html>

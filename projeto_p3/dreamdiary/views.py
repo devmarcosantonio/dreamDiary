@@ -2,7 +2,10 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login as auth_login
 from dreamdiary.models import User, Dream, Emotion, DreamEmotion
+from django.http import JsonResponse
 from django.contrib import messages
+
+
 
 def populate_emotions():
     emotions_data = [
@@ -27,12 +30,7 @@ def populate_emotions():
 
     print("Emoções populadas com sucesso!")
 
-
 populate_emotions()
-
-
-
-
 
 def login_view(request):
     if request.method == "POST":
@@ -131,7 +129,6 @@ def about (request):
 
 
 # CRUD SONHOS
-
 def saveDream(request):
     if request.method == "POST":
         title = request.POST.get("title")
@@ -160,3 +157,55 @@ def deleteDream(request, id):
         sonho.delete()  # Exclui o sonho
       
     return redirect('meus_sonhos')  # Redireciona de volta para a lista de sonhos
+
+
+import google.generativeai as genai
+
+
+genai.configure(api_key="AIzaSyCTwlnep5--qk4HeWA-VIf6DLO8XnuVeTk")
+import logging
+logger = logging.getLogger(__name__)  # Para registrar os erros no log do Django
+
+def generate_interpretation(request, id):
+    if request.method == "POST":
+        try:
+            sonho = get_object_or_404(Dream, id=id)
+
+            # Obtém as emoções associadas ao sonho
+            emotions = sonho.dream_emotions.all()
+            emotion_texts = [f"{de.emotion.name} ({de.emotion.category})" for de in emotions]
+            emotion_list = ", ".join(emotion_texts) if emotion_texts else "Nenhuma emoção associada"
+
+            # Constrói o prompt
+            modo = request.POST.get('modo', 'formal')  # Padrão: formal
+            prompt = f"""
+            Você é um especialista em interpretação de sonhos. Analise o sonho abaixo e forneça uma interpretação profunda:
+
+            **Título:** {sonho.title}
+            **Descrição:** {sonho.description}
+            **Emoções associadas:** {emotion_list}
+
+            Interprete o sonho de forma {modo}, considerando as emoções e possíveis significados psicológicos e simbólicos.
+
+            deve ser organizado em formado de texto normal, e no máximo 3 páragrafos
+            """
+
+            model = genai.GenerativeModel("gemini-2.0-flash")
+            response = model.generate_content(prompt)
+
+            if not response or not hasattr(response, 'text'):
+                raise ValueError("Resposta inválida da API Gemini")
+
+            interpretation = response.text
+
+            # Atualiza o sonho no banco de dados
+            sonho.interpretation = interpretation
+            sonho.save()
+
+            return JsonResponse({"interpretation": interpretation})
+
+        except Exception as e:
+            logger.error(f"Erro ao gerar interpretação: {str(e)}")
+            return JsonResponse({"error": f"Erro interno: {str(e)}"}, status=500)
+
+    return JsonResponse({"error": "Método inválido"}, status=400)
