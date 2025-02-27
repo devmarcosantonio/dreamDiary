@@ -2,7 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login as auth_login
 from dreamdiary.models import User, Dream, Emotion, DreamEmotion
-from datetime import datetime
+from datetime import datetime, timedelta
+import calendar
 from django.contrib import messages
 
 
@@ -42,10 +43,37 @@ def cadastro(request):
     return render(request, "pages/cadastro.html")
 
 def home(request):
-    # Buscar os 5 últimos sonhos cadastrados, ordenados pela data de criação
+    # Data atual para exibir o calendário do mês correto
+    hoje = datetime.today()
+    ano_atual = hoje.year
+    mes_atual = hoje.month
+
+    # Buscar os últimos 5 sonhos cadastrados
     ultimos_sonhos = Dream.objects.filter(user=request.user).order_by("-date")[:5]
 
-    return render(request, "pages/home.html", {"ultimos_sonhos": ultimos_sonhos})
+    # Buscar os dias em que os sonhos foram cadastrados no mês atual
+    sonhos_no_mes = Dream.objects.filter(
+        user=request.user, date__year=ano_atual, date__month=mes_atual
+    ).values_list("date", flat=True)
+
+    # Criar um conjunto com os dias onde há sonhos registrados
+    dias_com_sonho = {data.day for data in sonhos_no_mes}
+
+    # Gerar a lista de dias do mês atual
+    _, total_dias_mes = calendar.monthrange(ano_atual, mes_atual)
+    dias_do_mes = list(range(1, total_dias_mes + 1))  # Exemplo: [1, 2, 3, ..., 30]
+
+    return render(
+        request,
+        "pages/home.html",
+        {
+            "ultimos_sonhos": ultimos_sonhos,
+            "dias_com_sonho": dias_com_sonho,
+            "dias_do_mes": dias_do_mes,
+            "mes_atual": hoje.strftime("%B"),  # Nome do mês por extenso
+            "ano_atual": ano_atual,
+        },
+    )
 
 def myDreams(request):
     # Captura a data enviada pelo usuário (se existir)
