@@ -2,36 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login as auth_login
 from dreamdiary.models import User, Dream, Emotion, DreamEmotion
+from datetime import datetime
 from django.contrib import messages
-
-def populate_emotions():
-    emotions_data = [
-        {"category": "emocao-boa", "name": "Alegria"},
-        {"category": "emocao-boa", "name": "Euforia"},
-        {"category": "emocao-boa", "name": "Paz"},
-        {"category": "emocao-boa", "name": "Paixão"},
-        {"category": "emocao-boa", "name": "Surpresa"},
-        {"category": "emocao-boa", "name": "Nostalgia"},
-        {"category": "emocao-ruim", "name": "Vergonha"},
-        {"category": "emocao-ruim", "name": "Confusão"},
-        {"category": "emocao-ruim", "name": "Constrangimento"},
-        {"category": "emocao-ruim", "name": "Tristeza"},
-        {"category": "emocao-ruim", "name": "Medo"},
-        {"category": "emocao-ruim", "name": "Ansiedade"},
-        {"category": "emocao-ruim", "name": "Raiva"},
-        {"category": "emocao-ruim", "name": "Frustração"},
-    ]
-
-    for emotion in emotions_data:
-        Emotion.objects.get_or_create(category=emotion["category"], name=emotion["name"])
-
-    print("Emoções populadas com sucesso!")
-
-
-populate_emotions()
-
-
-
 
 
 def login_view(request):
@@ -73,10 +45,21 @@ def home (request):
     return render(request, 'pages/home.html')
 
 def myDreams(request):
-    # Busca os sonhos do usuário logado, incluindo emoções associadas
+    # Captura a data enviada pelo usuário (se existir)
+    data_filtrada = request.GET.get("data", "")
+
+    # Filtra os sonhos do usuário logado
     sonhos = Dream.objects.filter(user=request.user).prefetch_related("dream_emotions__emotion")
 
-    return render(request, "pages/my_dreams.html", {"sonhos": sonhos})
+    # Se o usuário forneceu uma data, filtramos os sonhos para essa data específica
+    if data_filtrada:
+        try:
+            data_formatada = datetime.strptime(data_filtrada, "%Y-%m-%d").date()
+            sonhos = sonhos.filter(date=data_formatada)
+        except ValueError:
+            pass  # Caso a data seja inválida, simplesmente ignoramos o filtro
+
+    return render(request, "pages/my_dreams.html", {"sonhos": sonhos, "data_filtrada": data_filtrada})
 
 def dream(request, id):
     # Busca o sonho pelo ID ou retorna 404 se não encontrado
