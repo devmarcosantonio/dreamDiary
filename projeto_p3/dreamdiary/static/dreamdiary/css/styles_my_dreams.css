@@ -156,6 +156,68 @@ main h1 {
     font-weight: bolder;
 }
 
+.filtros {
+    text-align: center;
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* 🎯 Layout do Formulário */
+.filtros form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 🎯 Ajuste no Input de Data */
+.filtros input[type="date"] {
+    padding: 6px 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff; /* Fundo branco */
+    color: #333; /* Cor do texto */
+    outline: none;
+    transition: border 0.2s ease-in-out;
+    appearance: none; /* Remove estilos padrão do navegador */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+/* 🛠️ Ajuste para navegadores que não mostram o texto do input */
+.filtros input[type="date"]::-webkit-datetime-edit {
+    color: #333;
+    font-size: 1rem;
+}
+
+/* Foco no input */
+.filtros input[type="date"]:focus {
+    border-color: #007bff;
+}
+
+/* 🔘 Botão Simples e Elegante */
+.filtros button {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 12px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+}
+
+.filtros button:hover {
+    background-color: #0056b3;
+}
+
+.filtros button:active {
+    background-color: #004494;
+}
+
+
 
 /* RESPONSIVIDADE */
 

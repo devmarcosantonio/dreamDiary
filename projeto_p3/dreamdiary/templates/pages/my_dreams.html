@@ -26,9 +26,12 @@
     
         <main>
             <section class="filtros">
-                <h2>Filtros</h2>
-                <input type="date">
+                <form method="GET" action="{% url 'meus_sonhos' %}">
+                    <input type="date" name="data" value="{{ data_filtrada }}">
+                    <button type="submit">Filtrar</button>
+                </form>
             </section>
+            
 
             <h1>Meus sonhos</h1>
             <button class="btn-novo-sonho"><a href="{% url 'novo_sonho' %}">Adicionar um sonho</a></button>
@@ -56,7 +59,7 @@
                         </ul>
                     </li>
                 {% empty %}
-                    <p class="mensagem-sem-sonho">Você ainda não adicionou sonhos.</p>
+                    <p class="mensagem-sem-sonho">Não existe sonhos cadastrado nesse dia.</p>
                 {% endfor %}
             </ul>
             
